@@ -1,0 +1,265 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  display: flex;
+  padding: 1em;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: white;
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.weather-app {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem;
+  padding: 2.5rem;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px);
+}
+
+.logo {
+  font-size: 8em;
+  background-color: yellow;
+  border-radius: 50%;
+  box-shadow: 0 0 80px rgb(255, 225, 0);
+  animation: glow 1s infinite alternate;
+
+  path {
+    fill: yellow;
+  }
+
+}
+
+.weather-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.weather-header h1 {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+}
+
+.weather-header p {
+  font-size: 1.2rem;
+  color: white;
+}
+
+.weather-content {
+  width: 100%;
+}
+
+.weather-display {
+  width: 100%;
+}
+
+.search-section {
+  margin-bottom: 2.5rem;
+}
+
+.search-section form {
+  display: flex;
+  gap: 1rem;
+}
+
+.search-input {
+  flex: 1;
+  padding: 1.2rem 1.5rem;
+  border: none;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: white;
+}
+
+.search-input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+.search-button {
+  padding: 1.2rem 2rem;
+  border: none;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.error-message {
+  margin-top: 1rem;
+  color: red;
+  font-size: 1rem;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.current-weather {
+  padding: 2rem;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.15);
+  margin-bottom: 2.5rem;
+}
+
+.current-weather h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.weather-details {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 2rem;
+  align-items: center;
+
+  img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.temperature {
+  text-align: center;
+}
+
+.temp-main {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.feels-like {
+  font-size: 1.2rem;
+  color: white;
+  margin: 0.5rem 0;
+}
+
+.conditions {
+  display: grid;
+  gap: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.forecast {
+  padding-top: 2rem;
+}
+
+.forecast h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.forecast-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.forecast-day {
+  padding: 1.5rem;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.15);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.forecast-day:hover {
+  transform: translateY(-5px);
+}
+
+.forecast-day .date {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.forecast-day img {
+  width: 80px;
+  height: 80px;
+  margin: 0.5rem 0;
+}
+
+.forecast-day .temp {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+.forecast-day .details {
+  font-size: 1rem;
+  color: lightgrey;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .weather-app {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .search-section form {
+    flex-direction: column;
+  }
+
+  .weather-details {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .forecast-container {
+    grid-template-columns: 1fr;
+  }
+}
